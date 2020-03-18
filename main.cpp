@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 class Dog{                      /* abstract class */
@@ -83,18 +84,51 @@ public:
         if(selectedDog == 1){
             printf("you have choosen a Chihuahua\n");
             Dog *ch = new Chihuahua();
+            interact(ch);
 
         }else if(selectedDog == 2){
             printf("you have choosen a Pug\n");
             Dog *pug = new Pug();
+            interact(pug);
 
         }else if(selectedDog == 3){
             printf("you have choosen a Pomerania\n");
             Dog *pom = new PomeraniaAdapter();
+            interact(pom);
 
         }else{
             printf("Invalid code");
 
+        }
+    }
+
+    void interact(Dog *dog){
+        int random = rand() %3 + 1;
+
+        cout<< "would you like to interact with you dog?\n1. Yes\n0. No" << endl;
+        int inter;
+        cin >> inter;
+
+        if(inter == 1){
+            act(random, dog);
+            interact(dog);
+
+        }else if(inter == 0){
+
+        }else{
+            cout << "Invalid code" << endl;
+            interact(dog);
+        }
+
+    }
+
+    void act(int random, Dog *dog){
+        if(random == 1){
+            dog->bark();
+        }else if(random == 2){
+            dog->eat();
+        }else if(random ==3){
+            dog->pet();
         }
     }
 
