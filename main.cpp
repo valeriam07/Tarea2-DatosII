@@ -2,6 +2,7 @@
 using namespace std;
 
 class Dog{                      /* abstract class */
+public:
     virtual void bark() = 0;
     virtual void eat() = 0;
     virtual void pet() = 0;
@@ -47,7 +48,7 @@ public:
 
 class Pomerania{
 public:
-    void brushHair(){
+    static void brushHair(){
         cout<< "you are brushing your Pomerania's hair"<<endl;
     }
 };
@@ -68,12 +69,39 @@ public:
 
     void pet() override {
         cout << "you are petting your Pomerania" << endl;
-        Pomerania p;
-        p.brushHair();
+        Pomerania::brushHair();
     }
 };
 
+class Application{
+public:
+    Application(){
+        cout << "Select a dog breed: \n1.Chihuahua\n2.Pug\n3.Pomerania" << endl;
+        int selectedDog;
+        cin >> selectedDog;
+
+        if(selectedDog == 1){
+            printf("you have choosen a Chihuahua\n");
+            Dog *ch = new Chihuahua();
+
+        }else if(selectedDog == 2){
+            printf("you have choosen a Pug\n");
+            Dog *pug = new Pug();
+
+        }else if(selectedDog == 3){
+            printf("you have choosen a Pomerania\n");
+            Dog *pom = new PomeraniaAdapter();
+
+        }else{
+            printf("Invalid code");
+
+        }
+    }
+
+
+};
 
 int main() {
+    Application app;
     return 0;
 }
