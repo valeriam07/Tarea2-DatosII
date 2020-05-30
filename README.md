@@ -7,8 +7,6 @@ Estructuras y algorimos de Datos II
 
 Ingenieria en Computadores
 
-By: 
-
 Stephanie Villalta 
 
 email: stephanie1117@hotmail.es
@@ -18,3 +16,5 @@ Valeria Morales
 email: valeriamorales40@gmail.com
 
 I Semestre 2020
+
+[Para acceder al codigo entrar al branch Adapter]
